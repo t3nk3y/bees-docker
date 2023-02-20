@@ -1,16 +1,29 @@
-version: '3.3'
+version: '3.8'
 services:
-  beesd:
-    container_name: beesd
+  mount_name:
+    image: t3nk3y/bees
     privileged: true
     restart: unless-stopped
     hostname: beesd
-    build:
-      context: .
     environment:
-      - TZ=Europe/Berlin
       - HASH_TABLE=/mnt/.beeshome/beeshash.dat
-      - HASH_TABLE_SIZE=4G
-      - OPTIONS=-a -c 1
+      - HASH_TABLE_SIZE=128K
+      - OPTIONS=-a -v 6
     volumes:
-      - /mnt:/mnt
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - /path/to/btrfs/mount:/mnt
+
+  another_mount_name:
+    image: t3nk3y/bees
+    privileged: true
+    restart: unless-stopped
+    hostname: beesd
+    environment:
+      - HASH_TABLE=/mnt/.beeshome/beeshash.dat
+      - HASH_TABLE_SIZE=128K
+      - OPTIONS=-a -v 6
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - /path/to/btrfs/another_mount:/mnt

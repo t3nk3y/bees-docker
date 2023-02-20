@@ -1,5 +1,4 @@
 #!/bin/sh
-ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 if [ ! -f ${HASH_TABLE} ]; then
 
 	mkdir /mnt/.beeshome

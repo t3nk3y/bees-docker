@@ -1,4 +1,4 @@
-FROM ubuntu:21.04
+FROM ubuntu:rolling
 ARG DEBIAN_FRONTEND=noninteractive
 
 ADD docker-entrypoint.sh /
