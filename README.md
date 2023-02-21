@@ -7,6 +7,9 @@ This image is based on Ubuntu Linux with bees agent from testing repositories.
 
 We've cloned the github repo: [deatheibon/bees](https://github.com/deatheibon/bees-docker), most of the credit for the dockerization should go to them.
 
+### Source Code
+Source code is available on GitHub here: https://github.com/t3nk3y/bees-docker
+
 ## Usage
 
 Bees only works with mounted BTRFS root subvolumes.  It does not work on any other subvolumes, so you need to mount your root subvolume of the filesystem to your native environment.  If you have more than one subvolume, the bees documentation suggests using an alternative mount point that isn't used in other places. Example:
